@@ -1,12 +1,9 @@
-import React from 'react'
-import ItemList from './ItemList'
-import { Center } from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
+import React from "react"
+import ItemDetail from "./ItemDetail"
 
-const ItemListContainer = () => {
-  const {category} = useParams ()
-  
-  const productos = [
+const ItemDetailContainer = () => {
+
+    const productos = [
     {id:1, nombre:"Cuadro 1", precio: "7000 $", src: "", descripcion: "Cuadro Personalizado 35 x 20cm", stock:15, category:"cuadro"},
     {id:2, nombre:"Cuadro 2", precio: "8000 $", src: "", descripcion: "Cuadro Personalizado 40 x 30cm", stock:20, category:"cuadro"},
     {id:3, nombre:"Cuadro 3", precio: "9000 $", src: "", descripcion: "Cuadro Personalizado 50 x 40cm", stock:12, category:"cuadro"},
@@ -20,34 +17,35 @@ const ItemListContainer = () => {
     {id:11, nombre:"Art on clothes 3", precio: "7000 $", src: "", descripcion: "Prenda Personalizada: camisa", stock:5, category:"clothes"},
     {id:12, nombre:"Art on clothes 4", precio: "7000 $", src: "", descripcion: "Prenda Personalizada: campera", stock:5, category:"clothes"},
 
-  ]
-  const getProductos = new Promise ((resolve, reject) => {
-    if (productos.length > 0){
-        setTimeout (() => {
-            resolve (productos)
-        },2000)
-    }else {
-        reject (new Error ("No hay productos"))
-    }
+
+
+    ]
     
-})
+    const getProductos = new Promise ((resolve, reject) => {
+        if (productos.length > 0) {
+            setTimeout(() => {
+                resolve(productos)
+            }, 2000)
+        } else {
+            reject(new Error("No hay productos"))
+        }
+    })
+    
+    getProductos
+        .then((res) => {
 
-getProductos
-.then ((res) =>{
-    console.log(res)
-})
-.catch((error) => {
-    console.log(error)
-})
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 
-const filteredProducts = productos.filter ((producto) => producto.category === category)
-
-return (
-    <Center p='1rem'>
-    <ItemList productos = {filteredProducts}/>
-    </Center>
-)
+    return (
+        <>
+            <ItemDetail
+                productos={productos}
+            />   
+        </>
+    )    
 }
 
-
-export default ItemListContainer
+export default ItemDetailContainer
