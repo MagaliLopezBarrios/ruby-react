@@ -28,8 +28,8 @@ const Document = () => {
         <h1>Productos</h1>
         {
             <div>
-                <h3>Producto: {product.name}</h3>
-                <h4>Categoria: {product,category}</h4>
+                <h3>Producto: {product.nombre}</h3>
+                <h4>Categoria: {product.categoria}</h4>
                 <p>Precio: {product.precio}</p>
             </div>
         }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Center } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Center } from '@chakra-ui/react';
 import ItemCount from './ItemCount';
 
 
@@ -9,6 +9,21 @@ const ItemDetail = ({ productos }) => {
 
 
     const filteredProducts = productos.filter((producto) => producto.id == id)
+
+
+    const [products, setProducts] = useState ([])
+
+    useEffect(() => {
+    const db = getFirestore()
+
+    const itemsCollection = collection(db, "PRODUCTOS")
+    getDocs(itemsCollection).then ((snapshot) => {
+        const docs = snapshot.docs.map((doc) => doc.data())
+        setProducts(docs)
+    }) 
+
+
+    }, [])
 
     return (
         <div>
@@ -23,7 +38,7 @@ const ItemDetail = ({ productos }) => {
                                 </CardHeader>
                                 <CardBody>
                                     <Text>{p.description}</Text>
-                                    <Text>{p.category}</Text>
+                                    <Text>{p.categoria}</Text>
                                 </CardBody>
                                 <CardFooter>
                                     <ItemCount />

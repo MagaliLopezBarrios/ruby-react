@@ -3,9 +3,7 @@ import { Button, Flex, Card, Divider, Stack, Heading, Image, Text } from "@chakr
 import { Link } from "react-router-dom";
 
 
-const Item = ({id, nombre, precio, descripcion, imagen, category}) => {
-
-    console.log(id)
+const Item = ({id, nombre, precio, descripcion, imagen, categoria}) => {
 
 
     return (
@@ -23,7 +21,7 @@ const Item = ({id, nombre, precio, descripcion, imagen, category}) => {
                         {descripcion}
                     </Text>
                     <Text>
-                        {category}
+                        {categoria}
                     </Text>
                     <Text color='blue.600' fontSize='2xl'>
                         {precio}

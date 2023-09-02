@@ -27,6 +27,7 @@ const ItemCount = () => {
       <IconButton onClick= {decrement} icon={<MinusIcon/>} />
       <Button>{counter}</Button>
       <IconButton onClick={increment} icon={<AddIcon/>} />
+      
     </ButtonGroup>
   )
 }

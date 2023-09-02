@@ -22,19 +22,19 @@ const NavBar = () => {
           </MenuButton>
           <MenuList>
             <MenuItem>
-            <Link to={'/category/${cat1}'}>
+            <Link to={'/categoria/${cuadro}'}>
             Cuadros
             </Link>
             </MenuItem>
 
             <MenuItem>
-            <Link to= {'/category/${cat2}'}>
+            <Link to= {'/categoria/${mural}'}>
             Murales
             </Link>
             </MenuItem>
 
             <MenuItem>
-            <Link to= {'/category/${cat3}'}>
+            <Link to= {'/categoria/${clothes}'}>
             Art on clothes
             </Link>
             </MenuItem>

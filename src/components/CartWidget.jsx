@@ -1,6 +1,7 @@
 import { AddIcon } from '@chakra-ui/icons'
 import { Box, Flex, Spacer } from '@chakra-ui/react'
 import React from 'react'
+import ItemCount from './ItemCount'
 
 const CartWidget = () => {
   return (
@@ -10,7 +11,7 @@ const CartWidget = () => {
       </Box>
       <Spacer/>
       <Box>
-        <p>5</p>
+        <p>{'/ItemCount/${counter}'}</p>
       </Box>  
     </Flex>
   )
